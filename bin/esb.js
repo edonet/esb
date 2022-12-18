@@ -35,10 +35,10 @@ function showVersion() {
  */
 function run() {
   const args = process.argv.slice(2);
-  const [cmd, script] = args;
+  const [argv, script] = args;
 
   // 解析命令
-  switch (cmd) {
+  switch (argv) {
     case '-p':
     case '--project':
       if (args.length > 1) {
@@ -59,8 +59,8 @@ function run() {
     case '--version':
       return showVersion();
     default:
-      if (script && cmd.charAt(0) !== '-') {
-        require('../dist/compile').load(script);
+      if (argv.charAt(0) !== '-') {
+        require('../dist/compile').load(argv);
       } else {
         showHelp();
       }
