@@ -11,10 +11,21 @@
 
 /**
  *****************************************
- * 执行脚本
+ * 显示帮助
  *****************************************
  */
-run();
+function showHelp() {
+  console.log(`esb v${require('../package.json').version}\n${require('./info')}`);
+}
+
+/**
+ *****************************************
+ * 显示版本
+ *****************************************
+ */
+function showVersion() {
+  console.log('v' + require('../package.json').version);
+}
 
 
 /**
@@ -60,18 +71,7 @@ function run() {
 
 /**
  *****************************************
- * 显示帮助
+ * 执行脚本
  *****************************************
  */
-function showHelp() {
-  console.log(`esb v${require('../package.json').version}\n${require('./info')}`);
-}
-
-/**
- *****************************************
- * 显示版本
- *****************************************
- */
-function showVersion() {
-  console.log('v' + require('../package.json').version);
-}
+run();

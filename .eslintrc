@@ -1,5 +1,4 @@
 {
   "extends": ["@ainc/recommended"],
-  "root": true,
-  "ignorePatterns": ["dist"]
+  "root": true
 }
