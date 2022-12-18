@@ -23,7 +23,7 @@ run();
  *****************************************
  */
 function run() {
-  const args = process.argv.slice(2);
+  const args = process.argv.slice(1);
   const [cmd, script] = args;
 
   // 解析命令

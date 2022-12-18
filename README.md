@@ -3,10 +3,24 @@ Let's do something nice with @ainc/esb!
 
 ## Install
 ``` shell
-$ yarn add @ainc/esb
+$ yarn global add @ainc/esb
 ```
 
 ## Usage
-``` javascript
-import * as esb from '@ainc/esb';
+``` shell
+$ esb -p ./src
+```
+
+## VS Code
+``` json
+{
+  "name": "Launch Script",
+  "type": "node",
+  "request": "launch",
+  "autoAttachChildProcesses": true,
+  "runtimeExecutable": "esb",
+  "args": [
+    "${file}"
+  ]
+}
 ```
