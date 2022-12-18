@@ -12,7 +12,7 @@
  * 脚本对象
  *****************************************
  */
-interface Script<T = unknown> {
+export interface Script<T = unknown> {
 
   /** 模块ID */
   id: string;
@@ -20,14 +20,17 @@ interface Script<T = unknown> {
   /** 文件名 */
   filename: string;
 
+  /** 模块路径 */
+  paths: string[];
+
   /** 子模块 */
   children: Script[];
 
   /** 抛出接口 */
   exports: T;
 
-  /** 源码 */
-  _code?: string;
+  /** 加载完成 */
+  loaded: boolean;
 
   /** 加载文件 */
   load(filename: string): void;
@@ -62,6 +65,9 @@ export const Script = require('module') as {
 
   /** 扩展对象 */
   _extensions: Record<string, void | Handler>;
+
+  /** 获取模块解析路径 */
+  _nodeModulePaths(path: string): string[];
 
   /** 初始化对象 */
   new <T>(filename: string, script: Script | NodeModule): Script<T>;

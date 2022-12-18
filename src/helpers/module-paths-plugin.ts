@@ -1,9 +1,7 @@
-#!/usr/bin/env node
-
 /**
  *****************************************
  * Created by edonet@163.com
- * Created on 2022-12-15 22:51:07
+ * Created on 2022-12-18 17:47:37
  *****************************************
  */
 'use strict';
@@ -14,12 +12,12 @@
  * 加载依赖
  *****************************************
  */
-const { compile } = require('../dist/compile');
+import { transformer } from './module-paths-transformer';
 
 
 /**
  *****************************************
- * 执行编译
+ * 前置钩子
  *****************************************
  */
-compile();
+export const before = transformer;
