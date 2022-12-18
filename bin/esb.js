@@ -34,7 +34,7 @@ function showVersion() {
  *****************************************
  */
 function run() {
-  const args = process.argv.slice(1);
+  const args = process.argv.slice(2);
   const [cmd, script] = args;
 
   // 解析命令
