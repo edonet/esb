@@ -1,5 +1,5 @@
 {
-  "exclude": ["./dist", "node_modules"],                        // 排除目录
+  "exclude": ["dist", "node_modules"],                          // 排除目录
   "compilerOptions": {
     "target": "es2018",                                         // 指定ECMAScript目标版本
     "lib": ["es2018"],                                          // 使用`es6`类型库
