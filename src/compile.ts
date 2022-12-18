@@ -55,8 +55,6 @@ export function compile<T>(filename: string, code: string) {
   script.filename = filename;
   script.paths = Script._nodeModulePaths(dirname(filename));
 
-  console.log(transform(filename, code));
-
   // 执行编译
   script._compile(transform(filename, code), filename);
 
