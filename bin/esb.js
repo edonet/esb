@@ -18,6 +18,7 @@ function showHelp() {
   console.log(`esb v${require('../package.json').version}\n${require('./info')}`);
 }
 
+
 /**
  *****************************************
  * 显示版本
@@ -42,13 +43,13 @@ function run() {
     case '-p':
     case '--project':
       if (args.length > 1) {
-        require('../dist/cli').run(args.slice(1));
+        require('../dist/compile.js').compile(args.slice(1));
       }
       return;
     case '-e':
     case '--eval':
       if (script) {
-        require('../dist/compile').run(script);
+        require('../dist/index.js').run(script);
       }
       return;
     case undefined:
@@ -60,7 +61,7 @@ function run() {
       return showVersion();
     default:
       if (argv.charAt(0) !== '-') {
-        require('../dist/compile').load(argv);
+        require('../dist/index.js').load(argv);
       } else {
         showHelp();
       }

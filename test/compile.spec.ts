@@ -13,7 +13,7 @@
  *****************************************
  */
 import { describe, test, expect } from '@jest/globals';
-import { load, run, compile } from '@/compile';
+import { load, run, compile } from '../src';
 
 
 /**

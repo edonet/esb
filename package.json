@@ -19,6 +19,7 @@
     "compile": "tsc -p ./tsconfig.prod.json",
     "prepublishOnly": "yarn build",
     "test": "jest",
+    "esb": "./scripts/esb -p ./src",
     "clean": "rm -rf ./dist"
   },
   "repository": "git@git.cloud:edonet/esb.git",
