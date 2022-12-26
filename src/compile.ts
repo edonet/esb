@@ -174,13 +174,18 @@ function emitProgramSourceFile(program: ts.Program | ts.BuilderProgram, sourceFi
   const compilerOptions = program.getCompilerOptions();
   const diagnostics: ts.Diagnostic[] = [];
 
+  // 添加诊断信息
+  function addDiagnostics(diag: readonly ts.Diagnostic[]) {
+    diag.length && diagnostics.push(...diag);
+  }
+
   // 获取诊断信息
-  diagnostics.push(...program.getConfigFileParsingDiagnostics());
-  diagnostics.push(...program.getOptionsDiagnostics(cancellationToken));
-  diagnostics.push(...program.getSyntacticDiagnostics(sourceFile, cancellationToken));
-  diagnostics.push(...program.getGlobalDiagnostics(cancellationToken));
-  diagnostics.push(...program.getSemanticDiagnostics(sourceFile, cancellationToken));
-  diagnostics.push(...program.getDeclarationDiagnostics(sourceFile, cancellationToken));
+  addDiagnostics(program.getConfigFileParsingDiagnostics());
+  addDiagnostics(program.getOptionsDiagnostics(cancellationToken));
+  addDiagnostics(program.getSyntacticDiagnostics(sourceFile, cancellationToken));
+  addDiagnostics(program.getGlobalDiagnostics(cancellationToken));
+  addDiagnostics(program.getSemanticDiagnostics(sourceFile, cancellationToken));
+  addDiagnostics(program.getDeclarationDiagnostics(sourceFile, cancellationToken));
 
   // 存在诊断信息
   if (diagnostics.length) {
@@ -193,10 +198,7 @@ function emitProgramSourceFile(program: ts.Program | ts.BuilderProgram, sourceFi
     undefined,
     cancellationToken,
     compilerOptions.emitDeclarationOnly,
-    {
-      before: [transformModulePaths],
-      after: [],
-    },
+    { before: [transformModulePaths], after: [] },
   );
 
   // 显示诊断信息
